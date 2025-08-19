@@ -217,12 +217,12 @@ jobs:
         uses: ophub/flippy-openwrt-actions@main
         if: ${{ steps.download.outputs.status }} == 'success' && !cancelled()
         env:
-          OPENWRT_ARMSR: openwrt/bin/targets/*/*/*rootfs.tar.gz
+          OPENWRT_ARMSR: https://downloads.immortalwrt.org/releases/24.10.2/targets/armsr/armv8/immortalwrt-24.10.2-armsr-armv8-generic-squashfs-rootfs.img.gz
           SELECT_PACKITPATH: openwrt_packit
-          PACKAGE_SOC: ${{ inputs.openwrt_soc }}
+          PACKAGE_SOC: s905d
           KERNEL_REPO_URL: ${{ inputs.kernel_repo }}
-          KERNEL_VERSION_NAME: ${{ inputs.openwrt_kernel }}
-          KERNEL_AUTO_LATEST: ${{ inputs.auto_kernel }}
+          KERNEL_VERSION_NAME: 6.6.93
+          KERNEL_AUTO_LATEST: false
           CUSTOMIZE_RK3399: ${{ inputs.customize_rk3399 }}
           SCRIPT_DIY_PATH: ${{ inputs.script_diy_path }}
           WHOAMI: ${{ inputs.builder_name }}
